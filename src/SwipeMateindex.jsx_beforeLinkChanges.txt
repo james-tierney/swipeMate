@@ -8,7 +8,6 @@ import LandingPage from "../pages/LandingPage";
 import SimpleDashBoardPage from "../pages/SimpleDashBoardPage";
 import ConnectAccountPage from "../pages/ConnectAccountPage";
 import InitialScreen from "../pages/InitialScreen";
-import { Login } from "@mui/icons-material";
 
 
 
@@ -19,7 +18,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <LandingPage />
+        element: <LoginPage />
       },
             {
         path: "home",
@@ -28,16 +27,6 @@ export const router = createBrowserRouter([
           {
             index: true,
             element: <LandingPage />
-          },
-        ]
-      },
-      {
-        path: "login",
-        element: <LoginPage />,
-        children: [
-          {
-            index: true,
-            element: <LoginPage/>
           },
         ]
       },

@@ -6,6 +6,15 @@ export const images = {
     cancel: require("./images/perspective_matte-15-128x128.png")
   },
   userProfile: require("./images/7309681.jpg"),
-  bookingImage: require("./images/cherry-blossoms-fuji-mountain-spring-sunrise-shizuoka-japan.jpg"),
-  logo: require("./images/logo.png")
+  cartoonAvatar: require("./images/cartoonAvatarCircular.png"),
+  bookingImageOne: require("./images/cherry-blossoms-fuji-mountain-spring-sunrise-shizuoka-japan.jpg"),
+  bookingImageTwo: require("./images/AutumnForrest.jpg"),
+
+  logo: require("./images/logo.png"),
+  notificationBell: require("./images/notification.png"),
+  profilePicture: require("./images/roundedProfile.png"),
+  calendar: require("./images/calendar.png"),
+
+  blondeGirl: require("./images/girlImage.jpg"),
+  tiltedPhone: require("./images/iphoneSwipeMateRotated.png")
 };

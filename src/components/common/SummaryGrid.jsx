@@ -1,25 +1,28 @@
 import React from 'react';
 import { images } from "../../assets";
 import { Box, Grid, Stack, Typography, colors } from '@mui/material';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import Animate from "./Animate";
 import MPaper from './MPaper';
 
 const summaryData = [
   {
-    title: "Total Booking",
-    value: "714k",
-    image: images.summaryImages.totalBook
+    title: "James Tinpot",
+    value: "Profile",
+    image: images.profilePicture
   },
   {
-    title: "Sold",
-    value: "311k",
-    image: images.summaryImages.sold
+    title: "Notifications",
+    value: "10",
+    image: images.notificationBell
   },
   {
-    title: "Canceled",
-    value: "122k",
-    image: images.summaryImages.cancel
+    title: "Days as Member",
+    value: "21",
+    image: images.calendar
+    // icon: <CalendarTodayIcon />,
   }
+  
 ];
 
 const SummaryGrid = () => {
@@ -43,7 +46,14 @@ const SummaryGrid = () => {
                   width: "100px",
                   "& img": { width: "100%" }
                 }}>
-                  <img src={summary.image} alt="summary" />
+                  {summary.image ? (
+                    <img src={summary.image} alt="summary" />
+                  ) : null}
+                  {summary.icon ? (
+                    <Box color={"red"} fontSize="3rem">
+                      {summary.icon}
+                    </Box>
+                  ) : null}
                 </Box>
               </Stack>
             </MPaper>

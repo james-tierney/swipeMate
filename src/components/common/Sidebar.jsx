@@ -6,10 +6,19 @@ import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined
 import OtherHousesOutlinedIcon from '@mui/icons-material/OtherHousesOutlined';
 import SavingsOutlinedIcon from '@mui/icons-material/SavingsOutlined';
 import SportsMotorsportsOutlinedIcon from '@mui/icons-material/SportsMotorsportsOutlined';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import SwapHorizOutlinedIcon from '@mui/icons-material/SwapHorizOutlined';
+import SettingsIcon from '@mui/icons-material/Settings';
+import SearchIcon from '@mui/icons-material/Search';
+import PhonelinkRingIcon from '@mui/icons-material/PhonelinkRing';
+import InfoIcon from '@mui/icons-material/Info';
 import { Box, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Typography, colors } from '@mui/material';
 import { images } from "../../assets";
 import Animate from "./Animate";
+import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+
+
 
 const menus = [
   {
@@ -20,7 +29,7 @@ const menus = [
   {
     title: "Overview",
     icon: <DashboardCustomizeOutlinedIcon />,
-    state: "overview"
+    state: "dashboard"
   },
   {
     title: "Notification",
@@ -29,62 +38,81 @@ const menus = [
   }
 ];
 
-const serviceMenus = [
+const pages = [
   {
-    title: "Mortage",
+    title: "Home",
     icon: <OtherHousesOutlinedIcon />,
-    state: "mortage"
+    state: "home"
   },
   {
-    title: "Car loans",
-    icon: <DirectionsCarFilledOutlinedIcon />,
-    state: "carloan"
+    title: "Profile",
+    icon: <AccountBoxIcon />,
+    state: "profile"
   },
   {
-    title: "Insurance",
-    icon: <SportsMotorsportsOutlinedIcon />,
-    state: "insurance"
+    title: "About",
+    icon: <InfoIcon />,
+    state: "about"
+  },
+  {
+    title: "Search",
+    icon: <SearchIcon />,
+    state: "search"
+  },
+  {
+    title: "Connect Account",
+    icon: <PhonelinkRingIcon />,
+    state: "connectAccount"
   }
 ];
 
 const investmentMenus = [
+
   {
-    title: "Stocks reade",
-    icon: <SwapHorizOutlinedIcon />,
-    state: "stocktrade"
-  },
-  {
-    title: "Finance advice",
+    title: "ExtraTwo",
     icon: <ChatBubbleOutlineOutlinedIcon />,
-    state: "financeadvice"
+    state: "extraTwo"
   },
   {
-    title: "Savings accounts",
-    icon: <SavingsOutlinedIcon />,
-    state: "savingaccount"
+    title: "Settings",
+    icon: <SettingsIcon />,
+    state: "settings"
   }
 ];
 
 const Sidebar = ({ sidebarWidth }) => {
-  const activeState = "overview";
+    // Use state to manage the active state
+  const [activeState, setActiveState] = useState("overview");
 
   // const container = window !== undefined ? () => window.document.body : undefined;
 
   const MenuItem = (props) => {
+    const navigate = useNavigate();
+
+    const handleItemClick = () => {
+      navigate(`/${props.item.state}`);
+
+      // Update the active state when an item is clicked
+      setActiveState(props.item.state);
+    };
+
     return (
-      <ListItem key={props.index} disableGutters disablePadding sx={{ py: 0.5 }}>
-        <ListItemButton sx={{
-          borderRadius: "10px",
-          bgcolor: props.isActive ? colors.green[600] : "",
-          color: props.isActive ? colors.common.white : "",
-          "&:hover": {
-            bgcolor: props.isActive ? colors.green[600] : "",
-            color: props.isActive ? colors.common.white : "",
-          }
-        }}>
+      <ListItem key={props.index} disableGutters disablePadding sx={{ py: 0.5, }}>
+        <ListItemButton
+          onClick={handleItemClick}
+          sx={{
+            borderRadius: "10px",
+            bgcolor: props.isActive ? '#ffffff' : "",
+            color: props.isActive ? '#ED1504' : "",
+            "&:hover": {
+              bgcolor: props.isActive ? '#e0e0e0' : "",
+              color: props.isActive ? '#ED1504' : "",
+            },
+          }}
+        >
           <ListItemIcon sx={{
             minWidth: "40px",
-            color: props.isActive ? colors.common.white : ""
+            color: props.isActive ? '#ED1504' : "white"
           }}>
             {props.item.icon}
           </ListItemIcon>
@@ -108,13 +136,17 @@ const Sidebar = ({ sidebarWidth }) => {
       sx={{
         "::-webkit-scrollbar": {
           display: "none"
-        }
+        }, bgcolor: "#ED1504"
       }}
     >
       {/* logo */}
       <Box sx={{ textAlign: "center", mb: 2 }}>
         <Animate type="fade" delay={1}>
-          <img src={images.logo} alt="logo" height={60} />
+          <Typography variant="h3" fontWeight="bold" color="white" fontFamily="Your-Cool-Font">
+            JTierney Tech
+          </Typography>
+          {/* Add the font-family property with the desired cool font name */}
+          {/* <img src={images.logo} alt="logo" height={60} /> */}
         </Animate>
       </Box>
       {/* logo */}
@@ -127,12 +159,13 @@ const Sidebar = ({ sidebarWidth }) => {
             borderTopRightRadius: "10px",
             borderTopLeftRadius: "10px",
             p: 2,
+            bgcolor: '#ED1504',
             height: "100%",
             boxShadow: "rgba(145, 158, 171, 0.2) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px"
           }}
         >
           {/* menu group 1 */}
-          <List>
+          <List sx={{color: "white"}}>
             {menus.map((item, index) => (
               <MenuItem
                 key={index}
@@ -144,13 +177,13 @@ const Sidebar = ({ sidebarWidth }) => {
           {/* menu group 1 */}
 
           {/* menu group 2 */}
-          <List>
+          <List sx={{color: "white"}}>
             <ListItem>
-              <Typography fontWeight={600} mt={1} color={colors.grey[600]}>
-                Services
+              <Typography fontWeight={600} mt={1} color={'#ffffff'}>
+                Pages
               </Typography>
             </ListItem>
-            {serviceMenus.map((item, index) => (
+            {pages.map((item, index) => (
               <MenuItem
                 key={index}
                 item={item}
@@ -161,10 +194,10 @@ const Sidebar = ({ sidebarWidth }) => {
           {/* menu group 2 */}
 
           {/* menu group 3 */}
-          <List>
+          <List sx={{color: "white"}}>
             <ListItem>
-              <Typography fontWeight={600} mt={1} color={colors.grey[600]}>
-                Investments
+              <Typography fontWeight={600} mt={1} color={'#ffffff'}>
+                Extras
               </Typography>
             </ListItem>
             {investmentMenus.map((item, index) => (

@@ -7,7 +7,7 @@ const chartData = {
   labels: ["Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan"],
   datasets: [
     {
-      label: "Sold",
+      label: "Green",
       data: [100, 90, 21, 90, 25, 91, 100, 90, 21, 90, 25, 91],
       stack: "stack 0",
       backgroundColor: colors.green[600],
@@ -15,10 +15,10 @@ const chartData = {
       categoryPercentage: 0.7
     },
     {
-      label: "Canceled",
+      label: "Red",
       data: [30, 10, 8, 40, 10, 9, 30, 10, 8, 40, 10, 9],
       stack: "stack 1",
-      backgroundColor: colors.red[300],
+      backgroundColor: colors.red[600],
       barPercentage: 0.6,
       categoryPercentage: 0.7
     }

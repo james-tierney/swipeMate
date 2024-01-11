@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Grid, Paper } from '@mui/material';
 import React from 'react';
 import SummaryGrid from '../components/common/SummaryGrid';
 import ToursData from '../components/common/ToursData';
@@ -32,19 +32,21 @@ const DashboardPage = () => {
         <Grid container spacing={3}>
           <Grid item xs={12} md={6}>
             <Animate type="fade" delay={1.5} sx={{ height: "100%" }}>
-              <TotalIncome />
+              <ToursData />
+              {/* <TotalIncome /> */}
             </Animate>
           </Grid>
           <Grid item xs={12} md={6}>
             <Animate type="fade" delay={2} sx={{ height: "100%" }}>
-              <BookedData />
+              <ToursData />
+              {/* <BookedData /> */}
             </Animate>
           </Grid>
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}>
             <Animate delay={2.5}>
               <StatisticData />
             </Animate>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Grid>
     </Grid>

@@ -47,7 +47,8 @@ const LoginPage = () => {
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        backgroundImage: `url(${images.loginBg})`
+        backgroundImage: `url(${images.tiltedPhone})`,
+        backgroundColor: '#ED1504'
       }} />
       {/* background box */}
 
@@ -58,7 +59,7 @@ const LoginPage = () => {
         height: "100%",
         width: isLoggedIn ? "100%" : { xl: "30%", lg: "40%", md: "50%", xs: "100%" },
         transition: "all 1s ease-in-out",
-        bgcolor: colors.common.white
+        bgcolor: '#ED1504'
       }}>
         <Box sx={{
           display: "flex",
@@ -69,13 +70,17 @@ const LoginPage = () => {
           height: "100%",
           "::-webkit-scrollbar": { display: "none" }
         }}>
-          {/* logo */}
-          <Box sx={{ textAlign: "center", p: 5 }}>
-            <Animate type="fade" delay={0.5}>
-              <img src={images.logo} alt="logo" height={60}></img>
-            </Animate>
-          </Box>
-          {/* logo */}
+      {/* logo */}
+      <Box sx={{ textAlign: "center", mb: 2 }}>
+        <Animate type="fade" delay={1}>
+          <Typography variant="h3" fontWeight="bold" color="white" fontFamily="Your-Cool-Font">
+            JTierney Tech
+          </Typography>
+          {/* Add the font-family property with the desired cool font name */}
+          {/* <img src={images.logo} alt="logo" height={60} /> */}
+        </Animate>
+      </Box>
+      {/* logo */}
 
           {/* form */}
           <Box sx={{
@@ -89,19 +94,81 @@ const LoginPage = () => {
             justifyContent: "center",
             "::-webkit-scrollbar": { display: "none" }
           }}>
-            <Animate type="fade" sx={{ maxWidth: 400, width: "100%" }}>
-              <Box component="form" maxWidth={400} width="100%" onSubmit={onSignin}>
-                <Stack spacing={3}>
-                  <TextField label="username" fullWidth />
-                  <TextField label="password" type="password" fullWidth />
-                  <Button type="submit" size="large" variant="contained" color="success">
-                    sign in
-                  </Button>
+          <Animate type="fade" sx={{ maxWidth: 400, width: "100%" }}>
+            <Box component="form" maxWidth={400} width="100%" onSubmit={onSignin}>
+              <Stack spacing={3}>
+            <TextField
+              label="Username"
+              fullWidth
+              variant="outlined"
+              InputLabelProps={{
+                sx: {
+                  color: 'black',
+                },
+              }}
+              InputProps={{
+                sx: {
+                  '& .MuiOutlinedInput-root': {
+                    '&.Mui-focused fieldset': {
+                      borderColor: 'white',
+                    },
+                  },
+                },
+              }}
+              sx={{
+                backgroundColor: 'white',  // Set background color to white
+                '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'white', // Change to your desired color
+                },
+              }}
+            />
+
+            <TextField
+              label="Password"
+              type="password"
+              fullWidth
+              variant="outlined"
+              InputLabelProps={{
+                sx: {
+                  color: 'black',
+                },
+              }}
+              InputProps={{
+                sx: {
+                  '& .MuiOutlinedInput-root': {
+                    '&.Mui-focused fieldset': {
+                      borderColor: 'white',
+                    },
+                  },
+                },
+              }}
+              sx={{
+                backgroundColor: 'white',  // Set background color to white
+                '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'white', // Change to your desired color
+                },
+              }}
+            />
+
+                <Button
+                  type="submit"
+                  size="large"
+                  variant="contained"
+                  sx={{
+                    color: "white",
+                    backgroundColor: "#F4739F",
+                    '&:hover': {
+                      backgroundColor: "#bb5588",
+                    },
+                  }}
+                >
+                  Sign In
+                </Button>
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <FormGroup>
-                      <FormControlLabel control={<Checkbox />} label="Remember me" />
+                      <FormControlLabel control={<Checkbox sx={{color: "white"}}/>} label="Remember me" sx={{color: "white"}}/>
                     </FormGroup>
-                    <Typography color="error" fontWeight="bold">
+                    <Typography color="error" fontWeight="bold" sx={{color: "white"}}>
                       <Link to="#">
                         Forgot password?
                       </Link>
@@ -119,7 +186,7 @@ const LoginPage = () => {
               <Typography
                 display="inline"
                 fontWeight="bold"
-                sx={{ "& > a": { color: colors.red[900], ml: "5px" } }}
+                sx={{ "& > a": { color: colors.common.white, ml: "5px" }, color: "white"}}
               >
                 Don't have an account -
                 <Link to="#">
@@ -163,7 +230,7 @@ const LoginPage = () => {
                     },
                     position: "absolute",
                     left: 0,
-                    color: colors.green[600]
+                    color: '#ED1504'
                   }}
                 />
               </Box>

@@ -18,7 +18,8 @@ const MainLayout = () => {
           flexGrow: 1,
           p: 3,
           height: "100vh",
-          width: { sm: `calc(100% - ${sidebarWidth}px)` }
+          width: { sm: `calc(100% - ${sidebarWidth}px)` },
+           backgroundColor: '#ED1504',
         }}
       >
         <Outlet />
