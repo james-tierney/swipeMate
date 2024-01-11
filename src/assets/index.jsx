@@ -1,18 +1,16 @@
 export const images = {
-  loginBg: require("./images/3d-render-tax-payment-financial-business-concept.jpg"),
-  summaryImages: {
-    totalBook: require("./images/perspective_matte-385-128x128.png"),
-    sold: require("./images/perspective_matte-67-128x128.png"),
-    cancel: require("./images/perspective_matte-15-128x128.png")
-  },
-  userProfile: require("./images/7309681.jpg"),
-  cartoonAvatar: require("./images/cartoonAvatarCircular.png"),
-  bookingImageOne: require("./images/cherry-blossoms-fuji-mountain-spring-sunrise-shizuoka-japan.jpg"),
-  bookingImageTwo: require("./images/AutumnForrest.jpg"),
 
-  logo: require("./images/logo.png"),
-  notificationBell: require("./images/notification.png"),
-  profilePicture: require("./images/roundedProfile.png"),
+  // summaryImages: {
+  //   // totalBook: require("./images/perspective_matte-385-128x128.png"),
+  //   sold: require("./images/perspective_matte-67-128x128.png"),
+  //   cancel: require("./images/perspective_matte-15-128x128.png")
+  // },
+  // userProfile: require("./images/7309681.jpg"),
+  cartoonAvatar: require("./images/cartoonAvatarCircular.png"),
+
+
+
+  // profilePicture: require("./images/roundedProfile.png"),
   calendar: require("./images/calendar.png"),
 
   blondeGirl: require("./images/girlImage.jpg"),
